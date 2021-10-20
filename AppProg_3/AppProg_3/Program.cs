@@ -6,7 +6,6 @@ namespace AppProg_3
 {
     class Person
     {
-
         public int InitNumber { private set; get; }
         public int SortedNumber { set; get; }
         public int PersonValue { private set; get; }
@@ -21,6 +20,10 @@ namespace AppProg_3
 
     class Program
     {
+        /// <summary>
+        /// Ввод количества сотрудников.
+        /// </summary>
+        /// <returns>int</returns>
         public static int InputCount()
         {
             var error = true;
@@ -40,6 +43,10 @@ namespace AppProg_3
             return result;
         }
 
+        /// <summary>
+        /// Ввод Создание и заполнение списка случайными величинами.
+        /// </summary>
+        /// <returns>List<Person></returns>
         public static List<Person> CreatListOfPerson(int listSize, int maxListValue)
         {
             Random rnd = new Random();
@@ -51,6 +58,10 @@ namespace AppProg_3
             return resultList;
         }
 
+        /// <summary>
+        /// Вывод списка в консоль.
+        /// </summary>
+        /// <returns>void</returns>
         public static void ShowListValues(List<Person> list, string header)
         {
             Console.WriteLine(header);
@@ -60,16 +71,23 @@ namespace AppProg_3
             }
         }
 
+        /// <summary>
+        /// Сортировка списка по PersonValue.
+        /// </summary>
+        /// <returns>List<Person></returns>
         public static List<Person> SortList(List<Person> originalList, bool orderBy)
         {
             if (orderBy)
             {
                 return originalList.OrderBy(u => u.PersonValue).ToList();
-
             }
             return originalList.OrderByDescending(u => u.PersonValue).ToList();
         }
 
+        /// <summary>
+        /// Высчитывание SortedNumber для элементов в отсортированном списке.
+        /// </summary>
+        /// <returns>void</returns>
         public static void CalculateSortedIndexes(List<Person> sortdeList)
         {
             for (var i = 0; i < sortdeList.Count; i++)
@@ -78,6 +96,10 @@ namespace AppProg_3
             }
         }
 
+        /// <summary>
+        /// Выдача на консоль самой выгодной погрузки.
+        /// </summary>
+        /// <returns>void</returns>
         public static void ShowResult(List<Person> sortedListOfDrivers, List<Person> sortedListOfEmployees, List<Person> originalEmployeesList)
         {
             Console.WriteLine("\n\nСамая выгодня погрузка:");
